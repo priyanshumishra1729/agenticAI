@@ -10,6 +10,7 @@ python-multipart==0.0.20
 # Agent frameworks (the only two used)
 crewai==0.140.0
 google-adk==1.0.0
+deprecated==1.2.18
 # Protocols / tools / observability
 mcp==1.12.4
 langfuse==2.60.10
