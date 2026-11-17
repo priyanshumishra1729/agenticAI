@@ -1,4 +1,4 @@
-import { Activity, FlaskConical, GitBranch, LayoutDashboard, ListChecks, Menu, Network, ShieldCheck, Siren, Zap } from 'lucide-react'
+import { FlaskConical, GitBranch, LayoutDashboard, ListChecks, Menu, Network, ShieldCheck, Siren, Zap } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { api } from './api'

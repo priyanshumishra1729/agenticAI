@@ -1,4 +1,4 @@
-import { ArrowLeft, Bot, Braces, CircleCheck, CircleX, Coins, Cpu, Database, FileText, Layers, ListChecks, MapPin, Play, RefreshCw, Send, ShieldAlert, ShieldCheck, Sparkles, ThumbsDown, ThumbsUp, Timer, TriangleAlert, Waypoints } from 'lucide-react'
+import { ArrowLeft, Bot, Braces, CircleCheck, Coins, Cpu, Database, FileText, Layers, ListChecks, MapPin, Play, RefreshCw, Send, ShieldAlert, ShieldCheck, Sparkles, ThumbsDown, ThumbsUp, Timer, TriangleAlert, Waypoints } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { api, fmt, type IncidentDetail as Detail, type Span } from '../api'

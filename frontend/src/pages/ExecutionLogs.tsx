@@ -1,4 +1,4 @@
-import { Activity, ExternalLink, Layers, ListChecks, RefreshCw, Waypoints } from 'lucide-react'
+import { ExternalLink, Layers, ListChecks, RefreshCw, Waypoints } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, fmt, type Span } from '../api'
