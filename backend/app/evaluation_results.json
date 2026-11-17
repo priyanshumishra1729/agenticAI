@@ -1,0 +1,511 @@
+{
+  "run_id": "EVAL-20261117-045847-e6a1",
+  "status": "completed",
+  "llm_mode": "simulated:signalchain-sim-1",
+  "cases_total": 12,
+  "cases_done": 12,
+  "errors": 0,
+  "accuracy": {
+    "severity_exact": 0.75,
+    "severity_within_one": 1.0,
+    "routing": 1.0,
+    "escalation": 0.917,
+    "duplicate_detection": 1.0,
+    "schema_valid_reports": 1.0
+  },
+  "baseline_accuracy": {
+    "severity_exact": 0.583,
+    "routing": 0.833,
+    "escalation": 0.917
+  },
+  "guardrails": {
+    "adversarial_blocked": 6,
+    "adversarial_total": 6,
+    "recall": 1.0,
+    "benign_blocked": 0,
+    "benign_total": 6,
+    "false_positive_rate": 0.0
+  },
+  "latency_ms": {
+    "mean": 3644,
+    "p50": 4094,
+    "p95": 4604,
+    "max": 5342
+  },
+  "stage_latency_ms": [
+    {
+      "stage": "adk:agent:weather_agent",
+      "calls": 12,
+      "mean": 2107.3,
+      "p95": 2961
+    },
+    {
+      "stage": "adk:tool:check_weather_risk",
+      "calls": 12,
+      "mean": 1987.8,
+      "p95": 2823
+    },
+    {
+      "stage": "mcp:weather_risk",
+      "calls": 12,
+      "mean": 1969,
+      "p95": 2813
+    },
+    {
+      "stage": "adk:agent:crew_liaison_agent",
+      "calls": 12,
+      "mean": 1111.8,
+      "p95": 1453
+    },
+    {
+      "stage": "adk:tool:delegate_to_crewai_specialist",
+      "calls": 12,
+      "mean": 1036.6,
+      "p95": 1350
+    },
+    {
+      "stage": "a2a:message/send",
+      "calls": 12,
+      "mean": 988,
+      "p95": 1234
+    },
+    {
+      "stage": "a2a:server:crewai_specialist",
+      "calls": 12,
+      "mean": 933.5,
+      "p95": 1200
+    },
+    {
+      "stage": "crewai:specialist_crew",
+      "calls": 12,
+      "mean": 895.6,
+      "p95": 1184
+    },
+    {
+      "stage": "adk:agent:inventory_agent",
+      "calls": 12,
+      "mean": 871.6,
+      "p95": 1257
+    },
+    {
+      "stage": "mcp:inventory_lookup",
+      "calls": 11,
+      "mean": 782.5,
+      "p95": 1121
+    },
+    {
+      "stage": "adk:agent:supplier_agent",
+      "calls": 12,
+      "mean": 731.5,
+      "p95": 1258
+    },
+    {
+      "stage": "adk:tool:lookup_inventory",
+      "calls": 12,
+      "mean": 727.4,
+      "p95": 1131
+    },
+    {
+      "stage": "mcp:supplier_shipment_lookup",
+      "calls": 9,
+      "mean": 700.3,
+      "p95": 1145
+    },
+    {
+      "stage": "adk:tool:lookup_supplier_and_shipment",
+      "calls": 12,
+      "mean": 535.4,
+      "p95": 1143
+    },
+    {
+      "stage": "adk:agent:intake_agent",
+      "calls": 12,
+      "mean": 139.6,
+      "p95": 241
+    },
+    {
+      "stage": "adk:agent:reviewer_agent",
+      "calls": 12,
+      "mean": 72.7,
+      "p95": 98
+    }
+  ],
+  "tokens": {
+    "input": 133459,
+    "output": 11943,
+    "per_incident": 12116,
+    "estimated": true
+  },
+  "cost": {
+    "pricing_model": "gemini-3.8-flash ($0.3/M in, $2.5/M out)",
+    "total_usd": 0.069895,
+    "per_incident_usd": 0.005825,
+    "per_1k_incidents_usd": 5.825,
+    "monthly_at_100_per_day_usd": 17.47
+  },
+  "runtime_seconds": 44.22,
+  "throughput_per_min": 16.5,
+  "cases": [
+    {
+      "case": "Repeat report: rail congestion at Port of Houston",
+      "expected": {
+        "severity": "medium",
+        "team": "Logistics",
+        "escalate": true,
+        "duplicate": true
+      },
+      "predicted": {
+        "severity": "medium",
+        "team": "Logistics",
+        "escalate": true,
+        "duplicate": true
+      },
+      "baseline": {
+        "severity": "critical",
+        "team": "Logistics",
+        "escalate": true
+      },
+      "error": null,
+      "latency_ms": 4254,
+      "tokens_in": 11661,
+      "tokens_out": 1065,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": false,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Reefer failure on frozen salmon linehaul",
+      "expected": {
+        "severity": "critical",
+        "team": "Quality",
+        "escalate": true
+      },
+      "predicted": {
+        "severity": "critical",
+        "team": "Quality",
+        "escalate": true,
+        "duplicate": true
+      },
+      "baseline": {
+        "severity": "high",
+        "team": "Operations",
+        "escalate": false
+      },
+      "error": null,
+      "latency_ms": 4088,
+      "tokens_in": 11356,
+      "tokens_out": 1042,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": false,
+      "baseline_team_ok": false,
+      "baseline_escalate_ok": false
+    },
+    {
+      "case": "Customs hold on microcontroller container",
+      "expected": {
+        "severity": "critical",
+        "team": "Logistics",
+        "escalate": true
+      },
+      "predicted": {
+        "severity": "critical",
+        "team": "Logistics",
+        "escalate": true,
+        "duplicate": true
+      },
+      "baseline": {
+        "severity": "critical",
+        "team": "Logistics",
+        "escalate": true
+      },
+      "error": null,
+      "latency_ms": 3693,
+      "tokens_in": 11919,
+      "tokens_out": 1133,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": true,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Minor damage on retail display delivery",
+      "expected": {
+        "severity": "low",
+        "team": "Warehouse",
+        "escalate": false
+      },
+      "predicted": {
+        "severity": "low",
+        "team": "Warehouse",
+        "escalate": false,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "medium",
+        "team": "Warehouse",
+        "escalate": false
+      },
+      "error": null,
+      "latency_ms": 4190,
+      "tokens_in": 10854,
+      "tokens_out": 929,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": false,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Steel coil supplier capacity collapse",
+      "expected": {
+        "severity": "critical",
+        "team": "Procurement",
+        "escalate": true
+      },
+      "predicted": {
+        "severity": "critical",
+        "team": "Procurement",
+        "escalate": true,
+        "duplicate": true
+      },
+      "baseline": {
+        "severity": "critical",
+        "team": "Procurement",
+        "escalate": true
+      },
+      "error": null,
+      "latency_ms": 1697,
+      "tokens_in": 11347,
+      "tokens_out": 1054,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": true,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Ocean delay on solvent drums",
+      "expected": {
+        "severity": "medium",
+        "team": "Logistics",
+        "escalate": false
+      },
+      "predicted": {
+        "severity": "low",
+        "team": "Logistics",
+        "escalate": false,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "medium",
+        "team": "Logistics",
+        "escalate": false
+      },
+      "error": null,
+      "latency_ms": 4094,
+      "tokens_in": 11003,
+      "tokens_out": 963,
+      "severity_ok": false,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": true,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Power outage halts Memphis cold-pack dispatch",
+      "expected": {
+        "severity": "critical",
+        "team": "Warehouse",
+        "escalate": true
+      },
+      "predicted": {
+        "severity": "critical",
+        "team": "Warehouse",
+        "escalate": true,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "critical",
+        "team": "Warehouse",
+        "escalate": true
+      },
+      "error": null,
+      "latency_ms": 3691,
+      "tokens_in": 10819,
+      "tokens_out": 958,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": true,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Contamination found in solvent batch",
+      "expected": {
+        "severity": "critical",
+        "team": "Quality",
+        "escalate": true
+      },
+      "predicted": {
+        "severity": "high",
+        "team": "Quality",
+        "escalate": true,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "critical",
+        "team": "Operations",
+        "escalate": true
+      },
+      "error": null,
+      "latency_ms": 1892,
+      "tokens_in": 11153,
+      "tokens_out": 977,
+      "severity_ok": false,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": true,
+      "baseline_team_ok": false,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Seal kit stockout imminent in Dallas",
+      "expected": {
+        "severity": "high",
+        "team": "Inventory",
+        "escalate": false
+      },
+      "predicted": {
+        "severity": "medium",
+        "team": "Inventory",
+        "escalate": false,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "high",
+        "team": "Inventory",
+        "escalate": false
+      },
+      "error": null,
+      "latency_ms": 4364,
+      "tokens_in": 11076,
+      "tokens_out": 972,
+      "severity_ok": false,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": true,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Truck missed pickup in Savannah",
+      "expected": {
+        "severity": "low",
+        "team": "Logistics",
+        "escalate": false
+      },
+      "predicted": {
+        "severity": "low",
+        "team": "Logistics",
+        "escalate": false,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "medium",
+        "team": "Logistics",
+        "escalate": false
+      },
+      "error": null,
+      "latency_ms": 4604,
+      "tokens_in": 10846,
+      "tokens_out": 942,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": false,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Unclear delivery problem in Seattle",
+      "expected": {
+        "severity": "low",
+        "team": "Operations",
+        "escalate": false
+      },
+      "predicted": {
+        "severity": "low",
+        "team": "Operations",
+        "escalate": false,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "medium",
+        "team": "Operations",
+        "escalate": false
+      },
+      "error": null,
+      "latency_ms": 5342,
+      "tokens_in": 10332,
+      "tokens_out": 929,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": true,
+      "baseline_severity_ok": false,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    },
+    {
+      "case": "Frozen salmon delayed at border crossing",
+      "expected": {
+        "severity": "high",
+        "team": "Logistics",
+        "escalate": false
+      },
+      "predicted": {
+        "severity": "high",
+        "team": "Logistics",
+        "escalate": true,
+        "duplicate": false
+      },
+      "baseline": {
+        "severity": "high",
+        "team": "Logistics",
+        "escalate": false
+      },
+      "error": null,
+      "latency_ms": 1828,
+      "tokens_in": 11093,
+      "tokens_out": 979,
+      "severity_ok": true,
+      "severity_within_one": true,
+      "team_ok": true,
+      "escalate_ok": false,
+      "baseline_severity_ok": true,
+      "baseline_team_ok": true,
+      "baseline_escalate_ok": true
+    }
+  ]
+}

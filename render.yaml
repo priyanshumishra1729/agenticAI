@@ -1,0 +1,28 @@
+# Render Blueprint – one-click deploy: https://dashboard.render.com/blueprints
+services:
+  - type: web
+    name: signalchain
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    healthCheckPath: /health
+    autoDeploy: true
+    disk:
+      name: signalchain-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: LLM_MODE
+        value: auto            # gemini when GEMINI_API_KEY is set, otherwise simulated
+      - key: GEMINI_API_KEY
+        sync: false            # set in the Render dashboard
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_HOST
+        value: https://cloud.langfuse.com
+      - key: PUBLIC_BASE_URL
+        value: https://signalchain.onrender.com   # update to your service URL
+      - key: CORS_ORIGINS
+        value: https://signalchain.onrender.com

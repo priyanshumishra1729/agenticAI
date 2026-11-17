@@ -1,0 +1,18 @@
+fastapi==0.115.0
+uvicorn[standard]==0.34.0
+sqlalchemy==2.0.36
+psycopg[binary]==3.2.1
+pydantic==2.10.6
+pydantic-settings==2.6.1
+python-dotenv==1.0.1
+httpx==0.28.1
+python-multipart==0.0.20
+# Agent frameworks (the only two used)
+crewai==0.140.0
+google-adk==1.0.0
+# Protocols / tools / observability
+mcp==1.12.4
+langfuse==2.60.10
+# Tests
+pytest==8.3.3
+pytest-asyncio==0.24.0
